@@ -29,6 +29,12 @@ int main() {
         int row = (choice - 1) / 3;
         int col = (choice - 1) % 3;
 
+        if (board[row][col] == 'O' || board[row][col] == 'X') {
+            cout << "Position already taken choose another position." << endl;
+            turn--; 
+            continue; 
+        }
+
         board[row][col] = player;   
 
         if (player == 'O') {
