@@ -26,13 +26,18 @@ int main() {
         cout << "Player " << player << ", pick a position (1-9): ";
         cin >> choice;
 
+        if (choice < 1 || choice > 9) {
+            cout << "Pick a number from 1 to 9." << endl;
+            turn--;
+            continue;
+        }
+
         int row = (choice - 1) / 3;
         int col = (choice - 1) % 3;
 
         if (board[row][col] == 'O' || board[row][col] == 'X') {
             cout << "Position already taken. Please choose another position." << endl;
-            cout << "Player " << player << ", pick a position (1-9): ";
-        cin >> choice;
+            turn--;
             continue;
         }
 
