@@ -24,6 +24,11 @@ int main() {
 
         int choice;
         cout << "Player " << player << ", pick a position (1-9): ";
+        if (choice < 1 || choice > 9) {
+    cout << "Pick a number from 1 to 9." << endl;
+    turn--;
+    continue;
+}
         cin >> choice;
 
         int row = (choice - 1) / 3;
