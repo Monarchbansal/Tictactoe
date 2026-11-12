@@ -14,6 +14,7 @@ void printBoard() {
         }
         cout << endl;
     }
+    return 0;
 }
 
 int main() {
@@ -31,7 +32,7 @@ int main() {
             turn--;
             continue;
         }
-
+        return 0;
         int row = (choice - 1) / 3;
         int col = (choice - 1) % 3;
 
