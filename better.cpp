@@ -14,35 +14,42 @@ void printBoard() {
         }
         cout << endl;
     }
-    return 0;
 }
 
 int main() {
-    char player = 'O';        
+    char player = 'O';
 
-    for (int turn = 0; turn < 9; turn++) {   
+    for (int turn = 0; turn < 9; turn++) {
         printBoard();
 
         int choice;
         cout << "Player " << player << ", pick a position (1-9): ";
         cin >> choice;
 
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Please type a number from 1 to 9." << endl;
+            turn--;
+            continue;
+        }
+
         if (choice < 1 || choice > 9) {
             cout << "Pick a number from 1 to 9." << endl;
             turn--;
             continue;
         }
-        return 0;
+
         int row = (choice - 1) / 3;
         int col = (choice - 1) % 3;
 
         if (board[row][col] == 'O' || board[row][col] == 'X') {
-            cout << "Position already taken. Please choose another position." << endl;
+            cout << "Position already taken choose another position." << endl;
             turn--;
             continue;
         }
 
-        board[row][col] = player;   
+        board[row][col] = player;
 
         if (player == 'O') {
             player = 'X';
@@ -52,5 +59,7 @@ int main() {
     }
 
     printBoard();
+    cout << "Board is full. Game over!" << endl;
+
     return 0;
 }
