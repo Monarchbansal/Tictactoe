@@ -13,7 +13,9 @@ void printBoard() {
             cout << board[row][col] << " ";
         }
         cout << endl;
+        return ;
     }
+    return 0;
 }
 
 int main() {
@@ -29,6 +31,7 @@ int main() {
     turn--;
     continue;
 }
+return 0;
         cin >> choice;
 
         int row = (choice - 1) / 3;
